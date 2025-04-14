@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: Project for gitops tool for rollouts demo team
+    openshift.io/display-name:  Rollouts Demo GitOps
+  name: rollouts-demo-gitops

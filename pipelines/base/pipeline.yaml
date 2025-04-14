@@ -1,0 +1,72 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: rollouts-pipeline
+spec:
+  workspaces:
+  - name: manifests
+  params:
+    - default: blue
+      name: COLOR
+      type: string
+    - default: ${GIT_REPO}
+      name: GIT_REPOSITORY
+      type: string
+    - default: main
+      name: GIT_REF
+      type: string
+  tasks:
+    - name: dev-git-update
+      taskRef:
+        kind: Task
+        name: git-update-deployment
+      params:
+      - name: GIT_REPOSITORY
+        value: $(params.GIT_REPOSITORY)
+      - name: GIT_REF
+        value: $(params.GIT_REF)
+      - name: NEW_IMAGE
+        value: argoproj/rollouts-demo
+      - name: NEW_TAG
+        value: $(params.COLOR)
+      - name: KUSTOMIZATION_PATH
+        value: environments/overlays/dev
+      workspaces:
+      - name: workspace
+        workspace: manifests
+    - name: dev-gitops-sync
+      taskRef:
+        name: argocd-task-sync-and-wait
+      runAfter:
+        - dev-git-update
+      params:
+        - name: application_name
+          value: rollouts-demo-gitops/rollouts-demo-dev
+    - name: prod-git-update
+      taskRef:
+        kind: Task
+        name: git-update-deployment
+      runAfter:
+        - dev-gitops-sync
+      params:
+      - name: GIT_REPOSITORY
+        value: $(params.GIT_REPOSITORY)
+      - name: GIT_REF
+        value: $(params.GIT_REF)
+      - name: NEW_IMAGE
+        value: argoproj/rollouts-demo
+      - name: NEW_TAG
+        value: $(params.COLOR)
+      - name: KUSTOMIZATION_PATH
+        value: environments/overlays/prod
+      workspaces:
+      - name: workspace
+        workspace: manifests
+    - name: prod-gitops-sync
+      taskRef:
+        name: argocd-task-sync-and-wait
+      runAfter:
+        - prod-git-update
+      params:
+        - name: application_name
+          value: rollouts-demo-gitops/rollouts-demo-prod

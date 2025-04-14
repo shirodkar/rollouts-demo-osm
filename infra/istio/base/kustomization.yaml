@@ -1,0 +1,5 @@
+resources:
+- istio-cni-ns.yaml
+- istio-system-ns.yaml
+- istio.yaml
+- istio-cni.yaml

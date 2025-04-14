@@ -1,0 +1,54 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: default
+    destination:
+      namespace: openshift-gitops
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: ${GIT_REPO}
+      targetRevision: main
+
+applications:
+
+  rollouts-demo-gitops:
+    destination:
+      namespace: rollouts-demo-gitops
+    source:
+      path: environments/overlays/gitops
+
+  rollouts-demo-dev:
+    labels:
+      app.kubernetes.io/name: rollouts-demo
+    destination:
+      namespace: rollouts-demo-dev
+    source:
+      path: environments/overlays/dev
+
+  rollouts-demo-prod:
+    labels:
+      app.kubernetes.io/name: rollouts-demo
+    destination:
+      namespace: rollouts-demo-prod
+    source:
+      path: environments/overlays/prod
+    syncOptions:
+      - RespectIgnoreDifferences=true
+    extraFields: |
+      ignoreDifferences:
+        - group: route.openshift.io
+          kind: Route
+          jsonPointers:
+            - /status
+            - /spec/to/weight
+            - /spec/alternateBackends
+
+  rollouts-demo-cicd:
+    labels:
+      app.kubernetes.io/name: rollouts-demo
+    destination:
+      namespace: rollouts-demo-cicd
+    source:
+      path: environments/overlays/cicd

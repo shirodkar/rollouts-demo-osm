@@ -1,0 +1,5 @@
+namespace: rollouts-demo-cicd
+
+resources:
+- ../../../pipelines/base
+- pipeline-sa.yaml
