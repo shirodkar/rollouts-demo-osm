@@ -6,4 +6,5 @@ metadata:
     openshift.io/display-name:  Rollouts Demo Prod
   labels:
     argocd.argoproj.io/managed-by: rollouts-demo-gitops
+    istio-discovery: enabled
   name: rollouts-demo-prod

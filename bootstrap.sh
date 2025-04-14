@@ -15,8 +15,11 @@ oc apply -k infra/namespaces/base
 echo "Create and configure istio-system and istio-cni"
 oc apply -l infra/istio/base
 
-echo "Authorize monitoring for rollouts analysis"
-oc apply -k infra/auth-monitoring/base
+# echo "Authorize monitoring for rollouts analysis"
+# oc apply -k infra/auth-monitoring/base
+
+echo "Add cluster scoped RolloutsManager"
+oc apply -k infra/gitops/base
 
 echo "Create rollouts GitOps instance"
 # echo "Create default instance of gitops operator"
