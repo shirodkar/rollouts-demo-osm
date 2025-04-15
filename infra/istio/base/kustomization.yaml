@@ -3,3 +3,5 @@ resources:
 - istio-system-ns.yaml
 - istio.yaml
 - istio-cni.yaml
+- kiali-cluserrolebinding.yaml
+- kiali.yaml

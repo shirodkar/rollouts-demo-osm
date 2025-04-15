@@ -20,6 +20,8 @@ OpenShift cluser must have:
 - OpenShift GitOps 1.13+
 - OpenShift Pipelines 1.11+
 - OpenShift Service Mesh 3.0+
+- Kiali (Provided by Red Hat)
+
 
 ### Installing the Demo
 
