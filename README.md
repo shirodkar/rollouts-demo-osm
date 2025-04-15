@@ -22,7 +22,6 @@ OpenShift cluser must have:
 - OpenShift Service Mesh 3.0+
 - Kiali (Provided by Red Hat)
 
-
 ### Installing the Demo
 
 Note that this demo assumes it is being installed in a clean lab or test cluster where the user has full access to the openshift-gitops namespace. This process has been tested in RHDP using the OpenShift Workshop 4.17 catalog item.
