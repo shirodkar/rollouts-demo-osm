@@ -5,7 +5,6 @@ namespace: rollouts-demo-prod
 
 resources:
 - monitor-token.yaml
-- rollout-manager.yaml
 - ../../../apps/rollout/overlays/bluegreen
 - ../../../apps/rollout/overlays/canary
 - networkpolicy-cicd.yaml
