@@ -47,9 +47,7 @@ spec:
   resourceTrackingMethod: annotation
   sso:
     dex:
-      image: quay.io/gnunn/dex
       openShiftOAuth: true
-      version: token-exchange-1.8
     provider: dex
   rbac:
     defaultPolicy: 'role:admin'
