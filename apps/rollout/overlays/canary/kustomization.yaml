@@ -3,4 +3,5 @@ resources:
 - canary-analysis.yaml
 - rollout.yaml
 - services.yaml
-# - route.yaml
+- virtualservice.yaml
+- canary-gateway.yaml
