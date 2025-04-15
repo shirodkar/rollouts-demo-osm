@@ -1,11 +1,10 @@
 apiVersion: networking.istio.io/v1
 kind: Gateway
 metadata:
-  name: ingressgateway
-  namespace: istio-system
+  name: canary
 spec:
   selector:
-    istio: ingressgateway
+    app: canary
   servers:
   - port:
       number: 80

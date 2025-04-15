@@ -1,10 +1,10 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: rollouts-demo-vsvc
+  name: canary
 spec:
   gateways:
-  - ingressgateway
+  - canary
   hosts:
   - canary
   http:
