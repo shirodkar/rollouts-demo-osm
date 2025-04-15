@@ -24,7 +24,7 @@ spec:
   - match:
     - port: 8080
       sniHosts:
-      - rollouts-demo-vsvc.local
+      - canary-vsvc.local
     route:
     - destination:
         host: canary-stable
