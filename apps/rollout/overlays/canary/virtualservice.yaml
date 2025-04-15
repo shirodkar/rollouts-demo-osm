@@ -4,7 +4,7 @@ metadata:
   name: rollouts-demo-vsvc
 spec:
   gateways:
-  - canary
+  - ingressgateway
   hosts:
   - canary
   http:

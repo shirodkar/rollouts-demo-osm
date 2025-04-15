@@ -5,3 +5,4 @@ resources:
 - istio-cni.yaml
 - kiali-clusterrolebinding.yaml
 - kiali.yaml
+- gateway.yaml
