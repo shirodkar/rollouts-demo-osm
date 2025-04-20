@@ -100,3 +100,19 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  annotations: {}
+  name: gateway
+spec:
+  selector:
+    istio: gateway
+  servers:
+    - hosts:
+        - gateway-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+      port:
+        name: http
+        number: 8080
+        protocol: HTTP
