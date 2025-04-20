@@ -24,7 +24,7 @@ spec:
     istio: gateway
   servers:
     - hosts:
-        - canary-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+        - canary-rollouts-demo-prod.${SUB_DOMAIN}
       port:
         name: http
         number: 8080

@@ -24,16 +24,16 @@ spec:
           protocol: TCP
   strategy:
     canary:
-      analysis:
-        templates:
-        - templateName: canary
-        args:
-        - name: namespace
-          value: rollouts-demo-prod
-        - name: route-name
-          value: canary-canary
-        - name: route-url
-          value: canary-canary-rollouts-demo-prod.${SUB_DOMAIN}
+      # analysis:
+      #   templates:
+      #   - templateName: canary
+      #   args:
+      #   - name: namespace
+      #     value: rollouts-demo-prod
+      #   - name: route-name
+      #     value: canary-canary
+      #   - name: route-url
+      #     value: canary-canary-rollouts-demo-prod.${SUB_DOMAIN}
       canaryService: canary-canary
       stableService: canary-stable
       steps:
@@ -45,3 +45,7 @@ spec:
       - pause: {duration: 10}
       - setWeight: 80
       - pause: {duration: 10}
+      trafficRouting:
+        istio:
+          virtualServices:
+            - name: canary

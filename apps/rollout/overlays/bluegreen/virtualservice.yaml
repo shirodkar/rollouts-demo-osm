@@ -6,7 +6,7 @@ spec:
   gateways:
   - bluegreen
   hosts:
-  - bluegreen-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+  - bluegreen-rollouts-demo-prod.${SUB_DOMAIN}
   http:
   - name: primary
     route:

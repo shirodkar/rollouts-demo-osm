@@ -6,7 +6,7 @@ spec:
   gateways:
   - canary
   hosts:
-  - canary-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+  - canary-rollouts-demo-prod.${SUB_DOMAIN}
   http:
   - name: primary
     route:

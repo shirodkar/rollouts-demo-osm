@@ -27,13 +27,17 @@ spec:
       activeService: bluegreen-active
       previewService: bluegreen-preview
       autoPromotionEnabled: false
-      prePromotionAnalysis:
-        templates:
-        - templateName: smoke-tests
-        args:
-        - name: namespace
-          value: rollouts-demo-prod
-        - name: route-name
-          value: bluegreen-preview
-        - name: route-url
-          value: bluegreen-preview-rollouts-demo-prod.${SUB_DOMAIN}
+      # prePromotionAnalysis:
+      #   templates:
+      #   - templateName: smoke-tests
+      #   args:
+      #   - name: namespace
+      #     value: rollouts-demo-prod
+      #   - name: route-name
+      #     value: bluegreen-preview
+      #   - name: route-url
+      #     value: bluegreen-preview-rollouts-demo-prod.${SUB_DOMAIN}
+      trafficRouting:
+        istio:
+          virtualServices:
+            - name: bluegreen
