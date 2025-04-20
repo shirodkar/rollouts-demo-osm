@@ -1,0 +1,31 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: bluegreen
+spec:
+  port:
+    targetPort: http2
+  to:
+    kind: Service
+    name: gateway
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  annotations: {}
+  name: bluegreen
+spec:
+  selector:
+    istio: gateway
+  servers:
+    - hosts:
+        - bluegreen-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+      port:
+        name: http
+        number: 8080
+        protocol: HTTP
