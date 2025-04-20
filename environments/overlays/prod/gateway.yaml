@@ -63,7 +63,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations: {}
-  labels: {}
+  labels:
+    app: gateway
   name: gateway
 spec:
   progressDeadlineSeconds: 600
@@ -83,6 +84,7 @@ spec:
         inject.istio.io/templates: gateway
       creationTimestamp: null
       labels:
+        app: gateway
         istio: gateway
         sidecar.istio.io/inject: "true"
     spec:
