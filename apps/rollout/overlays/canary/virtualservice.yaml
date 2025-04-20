@@ -16,7 +16,7 @@ spec:
           number: 8080
       weight: 100
     - destination:
-        host: canary
+        host: canary-canary
         port:
           number: 8080
       weight: 0
