@@ -56,7 +56,7 @@ spec:
     weight: 100
   tls:
     termination: edge
-    insecureEdgeTerminationPolicy: true
+    insecureEdgeTerminationPolicy: Redirect
   wildcardPolicy: None
 ---
 apiVersion: apps/v1
