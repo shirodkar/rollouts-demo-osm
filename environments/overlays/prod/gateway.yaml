@@ -43,6 +43,22 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: gateway
+spec:
+  port:
+    targetPort: http2
+  to:
+    kind: Service
+    name: gateway
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: true
+  wildcardPolicy: None
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
