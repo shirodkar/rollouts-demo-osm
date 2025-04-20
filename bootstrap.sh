@@ -38,3 +38,6 @@ done
 
 echo "Install applications and pipelines"
 kustomize build argocd/base --enable-helm | envsubst \$SUB_DOMAIN,\$GIT_REPO | oc apply -f -
+
+echo "Console Links"
+kustomize build consolelinks/base | envsubst \$SUB_DOMAIN,\$GIT_REPO | oc apply -f -

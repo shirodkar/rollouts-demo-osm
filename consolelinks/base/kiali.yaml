@@ -1,0 +1,10 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: kiali
+spec:
+  href: 'https://kiali-istio-system.${SUB_DOMAIN}'
+  location: ApplicationMenu
+  text: Kiali
+  applicationMenu:
+    section: Tools
