@@ -15,11 +15,6 @@ spec:
         port:
           number: 8080
       weight: 100
-    - destination:
-        host: bluegreen-preview
-        port:
-          number: 8080
-      weight: 0
   tls:
   - match:
     - port: 8080
@@ -29,6 +24,3 @@ spec:
     - destination:
         host: bluegreen-active
       weight: 100
-    - destination:
-        host: bluegreen-preview
-      weight: 0

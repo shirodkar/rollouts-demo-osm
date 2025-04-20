@@ -37,7 +37,3 @@ spec:
       #     value: bluegreen-preview
       #   - name: route-url
       #     value: bluegreen-preview-rollouts-demo-prod.${SUB_DOMAIN}
-      trafficRouting:
-        istio:
-          virtualServices:
-            - name: bluegreen
