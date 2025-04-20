@@ -4,9 +4,9 @@ metadata:
   name: canary
 spec:
   gateways:
-  - gateway
+  - canary
   hosts:
-  - gateway-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
+  - canary-rollouts-demo-prod.apps.cluster-4bhtb.dynamic.redhatworkshops.io
   http:
   - name: primary
     route:

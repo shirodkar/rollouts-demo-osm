@@ -4,3 +4,4 @@ resources:
 - rollout.yaml
 - services.yaml
 - virtualservice.yaml
+- gateway.yaml
