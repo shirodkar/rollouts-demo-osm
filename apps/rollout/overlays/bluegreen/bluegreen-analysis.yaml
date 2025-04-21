@@ -8,7 +8,6 @@ spec:
   args:
   - name: route-url
   - name: namespace
-  - name: route-name
   - name: api-token
     valueFrom:
       secretKeyRef:
