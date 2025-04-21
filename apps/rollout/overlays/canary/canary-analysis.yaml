@@ -6,9 +6,8 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   args:
-  - name: route-url
   - name: namespace
-  - name: route-name
+  - name: route-url
   - name: api-token
     valueFrom:
       secretKeyRef:
@@ -31,7 +30,7 @@ spec:
           - key: Authorization
             value: "Bearer {{args.api-token}}"
         query: |
-          irate(haproxy_backend_http_responses_total{exported_namespace='{{ args.namespace }}', route=~"{{ args.route-name }}", code="5xx"}[1m]) > 5 or on() vector(0)
+          irate(istio_requests_total{destination_service_namespace='{{args.namespace}}',destination_service=~"canary-canary.*", response_code!="200"}[1m]) > 5 or on() vector(0)
   - name: run-load
     provider:
       job:

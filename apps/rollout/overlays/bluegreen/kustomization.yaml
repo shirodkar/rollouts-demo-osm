@@ -5,3 +5,4 @@ resources:
 - bluegreen-analysis.yaml
 - virtualservice.yaml
 - gateway.yaml
+- gateway-preview.yaml
