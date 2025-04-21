@@ -31,6 +31,7 @@ spec:
           name: setenv-cmp-plugin
         name: setenv-cmp-plugin
   server:
+    enableRolloutsUI: true
     autoscale:
       enabled: false
     grpc:
