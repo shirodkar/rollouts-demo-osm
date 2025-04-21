@@ -42,9 +42,11 @@ applications:
           kind: Route
           jsonPointers:
             - /status
-            - /spec/to/weight
-            - /spec/alternateBackends
-
+        - group: networking.istio.io
+          kind: VirtualService
+          jqPathExpressions:
+            - .spec.http[].route[] | select(.destination.subset == "canary-stable" or .destination.subset == "canary-canary") | .weight
+            - .spec.http[].route[] | select(.destination.host | contains("canary-stable") or contains("canary-canary")) | .weight
   rollouts-demo-cicd:
     labels:
       app.kubernetes.io/name: rollouts-demo

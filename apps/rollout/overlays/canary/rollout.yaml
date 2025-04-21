@@ -49,3 +49,5 @@ spec:
         istio:
           virtualServices:
             - name: canary
+              routes:
+              - primary
