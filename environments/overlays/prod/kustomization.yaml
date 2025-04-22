@@ -12,4 +12,4 @@ resources:
 - gateway.yaml
 images:
 - name: argoproj/rollouts-demo
-  newTag: green
+  newTag: yellow
