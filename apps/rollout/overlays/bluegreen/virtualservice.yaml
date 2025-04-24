@@ -15,15 +15,15 @@ spec:
         port:
           number: 8080
       weight: 100
-  tls:
-  - match:
-    - port: 8080
-      sniHosts:
-      - bluegreen-vsvc.local
-    route:
-    - destination:
-        host: bluegreen-active
-      weight: 100
+  # tls:
+  # - match:
+  #   - port: 8080
+  #     sniHosts:
+  #     - bluegreen-vsvc.local
+  #   route:
+  #   - destination:
+  #       host: bluegreen-active
+  #     weight: 100
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -42,12 +42,12 @@ spec:
         port:
           number: 8080
       weight: 100
-  tls:
-  - match:
-    - port: 8080
-      sniHosts:
-      - bluegreen-preview-vsvc.local
-    route:
-    - destination:
-        host: bluegreen-preview
-      weight: 100
+  # tls:
+  # - match:
+  #   - port: 8080
+  #     sniHosts:
+  #     - bluegreen-preview-vsvc.local
+  #   route:
+  #   - destination:
+  #       host: bluegreen-preview
+  #     weight: 100

@@ -20,15 +20,15 @@ spec:
         port:
           number: 8080
       weight: 0
-  tls:
-  - match:
-    - port: 8080
-      sniHosts:
-      - canary-vsvc.local
-    route:
-    - destination:
-        host: canary-stable
-      weight: 100
-    - destination:
-        host: canary-canary
-      weight: 0
+  # tls:
+  # - match:
+  #   - port: 8080
+  #     sniHosts:
+  #     - canary-vsvc.local
+  #   route:
+  #   - destination:
+  #       host: canary-stable
+  #     weight: 100
+  #   - destination:
+  #       host: canary-canary
+  #     weight: 0
