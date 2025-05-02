@@ -10,3 +10,6 @@ resources:
 - networkpolicy-cicd.yaml
 - podmonitor.yaml
 - gateway.yaml
+images:
+- name: argoproj/rollouts-demo
+  newTag: blue
