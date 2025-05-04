@@ -34,7 +34,7 @@ Be aware that this demo will modify the `Istio` and `IstioCNI` resources in `ist
 
 ```cd rollouts-demo-osm```
 
-* Log into OpenShift with the oc CLI and from the `rollouts-demo` directory run the `bootstrap.sh` command to install the app.
+* Log into OpenShift with the oc CLI and from the `rollouts-demo-osm` directory run the `bootstrap.sh` command to install the app.
 
 * Create a secret for github as follows replacing XXX with the appropriate values for your forked repository, note the password is not your password to
 GitHub but a Personal Access Token (classic) that you need to create in GitHub.
