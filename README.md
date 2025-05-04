@@ -41,6 +41,8 @@ GitHub but a Personal Access Token (classic) that you need to create in GitHub.
 
 ```
 oc create secret generic github --type='kubernetes.io/basic-auth' --from-literal=username=XXXX --from-literal=password=XXXX --from-literal=email=XXXXX -n rollouts-demo-cicd
+```
+```
 oc annotate secret github tekton.dev/git-0='https://github.com'  -n rollouts-demo-cicd
 ```
 
