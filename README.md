@@ -32,7 +32,7 @@ Be aware that this demo will modify the `Istio` and `IstioCNI` resources in `ist
 
 * Clone the forked repo to your local file system and then switch to the directory:
 
-```cd rollouts-demo```
+```cd rollouts-demo-osm```
 
 * Log into OpenShift with the oc CLI and from the `rollouts-demo` directory run the `bootstrap.sh` command to install the app.
 
